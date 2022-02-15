@@ -12,6 +12,6 @@
       command: dpkg-query -l vim
       register: deb_check
 
-    - name: Execute script if vim is not installed
-      command: somescript
-    when: deb_check.stdout.find('no packages found') != -1
+    - name: Show deb_check
+      debug:
+        msg: "{{ deb_check }}"
