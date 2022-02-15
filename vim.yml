@@ -7,17 +7,20 @@
   tasks:
     - apt:
         name: vim
-
-    - name: "Vim test result"
-      debug: 
-        msg: "Vim found"
-      when: "'vim' in ansible_facts.packages"
-
-    - name: "Vim test result"
-      debug: 
+    
+   - name: "Check if vim is installed"
+     package_facts:
+     manager: "auto"
+  
+   - name: "Apache result"
+     debug:
+       msg: "Apache found"
+     when: "'vim' in ansible_facts.packages"
+    
+    - name: "vim result"
+      debug:
         msg: "vim NOT found"
       when: "'vim' not in ansible_facts.packages"
-
       
       
  
