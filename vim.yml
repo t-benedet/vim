@@ -7,6 +7,11 @@
   tasks:
     - apt:
         name: vim
+        register: install
+
+    - name: Show Vim installation
+      debug:
+        msg: "{{ install }}"
 
     - name: Check if vim is installed
       command: dpkg-query -l vim
