@@ -7,7 +7,7 @@
   tasks:
     - apt:
         name: vim
-        register: install
+      register: install
 
     - name: Show Vim installation
       debug:
