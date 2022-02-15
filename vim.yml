@@ -7,7 +7,11 @@
   tasks:
     - apt:
         name: vim
-    
+
     - name: Check if vim is installed
-      command: dpkg -s vim
-      register: dpkg_check
+      command: dpkg-query -l vim
+      register: deb_check
+
+    - name: Execute script if vim is not installed
+      command: somescript
+    when: deb_check.stdout.find('no packages found') != -1
