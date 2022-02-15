@@ -14,7 +14,7 @@
         msg: "{{ install }}"
 
     - name: Check if vim is installed
-      command: dpkg-query -l vim
+      command: dpkg -s vim
       register: deb_check
 
     - name: Show deb_check
